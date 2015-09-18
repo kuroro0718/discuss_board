@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+
   def index
   	#flash[:notice] = "Morning!"
   	#flash[:alert] = "Good night"
@@ -16,11 +18,11 @@ class GroupsController < ApplicationController
   end
 
   def edit
-  	@group = Group.find(params[:id])
+  	@group = current_user.groups.find(params[:id])
   end
 
   def create
-  	@group = Group.create(group_params)
+  	@group = current_user.groups.new(group_params)
 
   	if @group.save
   		redirect_to groups_path
@@ -30,7 +32,7 @@ class GroupsController < ApplicationController
   end
 
   def update
-  	@group = Group.find(params[:id])
+  	@group = current_user.groups.find(params[:id])
 
   	if @group.update(group_params)
   		redirect_to groups_path, notice: "Edit success"
@@ -40,7 +42,7 @@ class GroupsController < ApplicationController
   end
 
   def destroy 
-  	@group = Group.find(params[:id])
+  	@group = current_user.groups.find(params[:id])
   	@group.destroy
   	redirect_to groups_path, alert: "The discuss board has been delete"
   end
