@@ -52,7 +52,9 @@ class PostsController < ApplicationController
   end
 
   def member_required
-    return if !current_user.is_member_of?(@group)
+    if !current_user.is_member_of?(@group)
     flash[:warning] = "You are not member of this board, can't create article!"
     redirect_to group_path(@group)
+  end
+end
 end
