@@ -8,6 +8,6 @@ Ruby: 2.2.2  Rails: 4.2.1 Develop in Ubuntu 15.04
 	rake db:migrate
 
 # DB Test
-We add commands to clear and rebuild seed.
+We add commands to clear and rebuild seed
 	rake dev:build
 	rake dev:rebuild
