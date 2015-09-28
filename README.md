@@ -9,4 +9,8 @@ Ruby: 2.2.2  Rails: 4.2.1 Develop in Ubuntu 15.04
 
 # DB Test
 We add commands to clear and rebuild seed
+
 	rake dev:build
+or
+
+	rake dev:rebuild
