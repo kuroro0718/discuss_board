@@ -7,7 +7,7 @@ Ruby: 2.2.2  Rails: 4.2.1 Develop in Ubuntu 15.04
 	bundle install
 	rake db:migrate
 
-# DB Test
+# DB Test Command
 We add commands to clear and rebuild seed
 
 	rake dev:build
